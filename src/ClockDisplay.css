@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+
+.text {
+  color: blueviolet;
+}
+
+.time {
+  color: brown;
+}

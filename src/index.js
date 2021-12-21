@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "./ClockDisplay.css";
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class Clock extends React.Component {
+  state = { time: "" };
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ time: new Date().toLocaleTimeString() });
+    }, 1000);
+  }
+
+  render() {
+    return (
+      <div className="content">
+        <h1 className="text">The time is:</h1>
+        <h1 className="time">{this.state.time}</h1>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Clock />, document.querySelector("#root"));
